@@ -1,0 +1,1691 @@
+{
+	"info": {
+		"_postman_id": "669b8ce3-3df2-4552-ae17-a4963fa6a24b",
+		"name": "Courier 1 Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10329753",
+		"_collection_link": "https://blue-trinity-507808.postman.co/workspace/kt1~9236ec8b-45e9-4442-9c24-c28b54789506/collection/10329753-669b8ce3-3df2-4552-ae17-a4963fa6a24b?action=share&source=collection_link&creator=10329753"
+	},
+	"item": [
+		{
+			"name": "Minimaalsed nõuded",
+			"item": [
+				{
+					"name": "Add restaurant 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"pm.test(\"Restaurant data is correct\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.name).to.eql(\"Pärna Puhvet\");",
+									"    pm.expect(jsonData.location).to.eql(\"Pärnu\");",
+									"    pm.environment.set(\"restaurant1Id\", jsonData.id);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Pärna Puhvet\",\n    \"location\": \"Pärnu\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/restaurants",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"restaurants"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add restaurant - error 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Test\",\n    \"location\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/restaurants",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"restaurants"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add restaurant - error 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"location\": \"Kärdla\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/restaurants",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"restaurants"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add restaurant 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"pm.test(\"Restaurant data is correct\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.name).to.eql(\"Ranna Restoran\");",
+									"    pm.expect(jsonData.location).to.eql(\"Kuressaare\");",
+									"    pm.environment.set(\"restaurant2Id\", jsonData.id);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Ranna Restoran\",\n    \"location\": \"Kuressaare\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/restaurants",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"restaurants"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add restaurant 3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"pm.test(\"Restaurant data is correct\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.name).to.eql(\"Mõisa Söögituba\");",
+									"    pm.expect(jsonData.location).to.eql(\"Kuressaare\");",
+									"    pm.environment.set(\"restaurant3Id\", jsonData.id);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Mõisa Söögituba\",\n    \"location\": \"Kuressaare\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/restaurants",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"restaurants"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add restaurant 4",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"pm.test(\"Restaurant data is correct\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.name).to.eql(\"Kraavi Kõrts\");",
+									"    pm.expect(jsonData.location).to.eql(\"Võru\");",
+									"    pm.environment.set(\"restaurant4Id\", jsonData.id);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Kraavi Kõrts\",\n    \"location\": \"Võru\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/restaurants",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"restaurants"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get restaurants",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Number of restaurants\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.length).to.be.eq(4);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/restaurants",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"restaurants"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get restaurant 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Restaurant data is correct\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.name).to.eql(\"Ranna Restoran\");",
+									"    pm.expect(jsonData.location).to.eql(\"Kuressaare\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/restaurants/{{restaurant2Id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"restaurants",
+								"{{restaurant2Id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update restaurant 3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {",
+									"    pm.response.to.have.status(204);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": {{restaurant3Id}},\n    \"name\": \"Mõisa Söögituba\",\n    \"location\": \"Paide\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/restaurants/{{restaurant3Id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"restaurants",
+								"{{restaurant3Id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get restaurant 3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Restaurant data is correct\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.name).to.eql(\"Mõisa Söögituba\");",
+									"    pm.expect(jsonData.location).to.eql(\"Paide\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/restaurants/{{restaurant3Id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"restaurants",
+								"{{restaurant3Id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete restaurant 3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {",
+									"    pm.response.to.have.status(204);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/restaurants/{{restaurant3Id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"restaurants",
+								"{{restaurant3Id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add courier 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"pm.test(\"Courier data is correct\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.name).to.eql(\"Jaan Tamm\");",
+									"    pm.expect(jsonData.vehicleType).to.eql(\"auto\");",
+									"    pm.environment.set(\"courier1Id\", jsonData.id);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Jaan Tamm\",\n    \"vehicleType\": \"auto\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/couriers",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"couriers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add courier 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"pm.test(\"Courier data is correct\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.name).to.eql(\"Anna Kask\");",
+									"    pm.expect(jsonData.vehicleType).to.eql(\"mootorratas\");",
+									"    pm.environment.set(\"courier2Id\", jsonData.id);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Anna Kask\",\n    \"vehicleType\": \"mootorratas\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/couriers",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"couriers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add courier 3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"pm.test(\"Courier data is correct\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.name).to.eql(\"Kalle Mets\");",
+									"    pm.expect(jsonData.vehicleType).to.eql(\"jalgratas\");",
+									"    pm.environment.set(\"courier3Id\", jsonData.id);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Kalle Mets\",\n    \"vehicleType\": \"jalgratas\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/couriers",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"couriers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add courier - error 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"\",\n    \"vehicleType\": \"jalad\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/couriers",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"couriers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add courier 4",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"pm.test(\"Courier data is correct\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.name).to.eql(\"Mari Maasikas\");",
+									"    pm.expect(jsonData.vehicleType).to.eql(\"helikopter\");",
+									"    pm.environment.set(\"courier4Id\", jsonData.id);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Mari Maasikas\",\n    \"vehicleType\": \"helikopter\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/couriers",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"couriers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get couriers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Number of couriers\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.length).to.be.eq(4);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/couriers",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"couriers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update courier 3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {",
+									"    pm.response.to.have.status(204);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": {{courier3Id}},\n    \"name\": \"Kalle Mets\",\n    \"vehicleType\": \"mopeed\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/couriers/{{courier3Id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"couriers",
+								"{{courier3Id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get courier 3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Courier data is correct\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.name).to.eql(\"Kalle Mets\");",
+									"    pm.expect(jsonData.vehicleType).to.eql(\"mopeed\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/couriers/{{courier3Id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"couriers",
+								"{{courier3Id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete courier 3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {",
+									"    pm.response.to.have.status(204);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/couriers/{{courier3Id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"couriers",
+								"{{courier3Id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Complete order - error 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/orders/1/completion",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"orders",
+								"1",
+								"completion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add order 1 (1-2)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"pm.test(\"Order data is correct\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.restaurantId).to.eql(pm.environment.get(\"restaurant1Id\"));",
+									"    pm.expect(jsonData.courierId).to.eql(pm.environment.get(\"courier2Id\"));",
+									"    pm.expect(jsonData.customerName).to.eql(\"Tiit\");",
+									"    pm.expect(jsonData.orderContents).to.eql(\"Kanapasta\");",
+									"    pm.expect(jsonData.startDate).to.include(\"2024-12-12T10:00:00\");",
+									"    pm.expect(jsonData.completionDate).to.be.null;",
+									"    pm.environment.set(\"order1Id\", jsonData.id);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"customerName\": \"Tiit\",\n    \"orderContents\": \"Kanapasta\",\n    \"startDate\": \"2024-12-12T10:00:00\",\n    \"restaurantId\": {{restaurant1Id}},\n    \"courierId\": {{courier2Id}}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/orders",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add order - error 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"customerName\": \"Kalle\",\n    \"startDate\": \"2024-12-13T10:00:00\",\n    \"restaurantId\": {{restaurant2Id}},\n    \"courierId\": {{courier2Id}}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/orders",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add order - error 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"customerName\": \"Teet\",\n    \"orderContents\": \"Riis\",\n    \"startDate\": \"\",\n    \"restaurantId\": {{restaurant2Id}},\n    \"courierId\": {{courier2Id}}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/orders",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add order 2 (2-2)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"pm.test(\"Order data is correct\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.restaurantId).to.eql(pm.environment.get(\"restaurant2Id\"));",
+									"    pm.expect(jsonData.courierId).to.eql(pm.environment.get(\"courier2Id\"));",
+									"    pm.expect(jsonData.customerName).to.eql(\"Anu\");",
+									"    pm.expect(jsonData.orderContents).to.eql(\"Burger ja friikartulid\");",
+									"    pm.expect(jsonData.completionDate).to.be.null;",
+									"    pm.environment.set(\"order2Id\", jsonData.id);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"customerName\": \"Anu\",\n    \"orderContents\": \"Burger ja friikartulid\",\n    \"startDate\": \"2024-12-14T10:00:00\",\n    \"restaurantId\": {{restaurant2Id}},\n    \"courierId\": {{courier2Id}}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/orders",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add order - error 3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"customerName\": \"Kaspar\",\n    \"orderContents\": \"Juurviljad\",\n    \"startDate\": \"2024-12-14T12:00:00\",\n    \"restaurantId\": {{restaurant3Id}},\n    \"courierId\": {{courier1Id}}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/orders",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add order - error 4",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"customerName\": \"Kaspar\",\n    \"orderContents\": \"Juurviljad\",\n    \"startDate\": \"2024-12-15T12:00:00\",\n    \"restaurantId\": {{restaurant1Id}},\n    \"courierId\": {{courier3Id}}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/orders",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get orders",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Number of orders registrations\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.length).to.be.eq(2);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/orders",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get order 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Order data is correct\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.restaurantId).to.eql(pm.environment.get(\"restaurant1Id\"));",
+									"    pm.expect(jsonData.courierId).to.eql(pm.environment.get(\"courier2Id\"));",
+									"    pm.expect(jsonData.customerName).to.eql(\"Tiit\");",
+									"    pm.expect(jsonData.orderContents).to.eql(\"Kanapasta\");",
+									"    pm.expect(jsonData.startDate).to.include(\"2024-12-12T10:00:00\");",
+									"    pm.expect(jsonData.completionDate).to.be.null;",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/orders/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"orders",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Complete order 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Order data is correct\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.restaurantId).to.eql(pm.environment.get(\"restaurant1Id\"));",
+									"    pm.expect(jsonData.courierId).to.eql(pm.environment.get(\"courier2Id\"));",
+									"    pm.expect(jsonData.customerName).to.eql(\"Tiit\");",
+									"    pm.expect(jsonData.orderContents).to.eql(\"Kanapasta\");",
+									"    pm.expect(jsonData.startDate).to.include(\"2024-12-12T10:00:00\");",
+									"    pm.expect(jsonData.completionDate).to.include(new Date().toISOString().split('T')[0]);",
+									"    pm.environment.set(\"order1CompletionDate\", jsonData.completionDate);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/orders/{{order1Id}}/completion",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"orders",
+								"{{order1Id}}",
+								"completion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Complete order 1 - error 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/orders/{{order1Id}}/completion",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"orders",
+								"{{order1Id}}",
+								"completion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get order 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Order data is correct\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.restaurantId).to.eql(pm.environment.get(\"restaurant1Id\"));",
+									"    pm.expect(jsonData.courierId).to.eql(pm.environment.get(\"courier2Id\"));",
+									"    pm.expect(jsonData.customerName).to.eql(\"Tiit\");",
+									"    pm.expect(jsonData.orderContents).to.eql(\"Kanapasta\");",
+									"    pm.expect(jsonData.startDate).to.include(\"2024-12-12T10:00:00\");",
+									"    pm.expect(jsonData.completionDate).to.eql(pm.environment.get(\"order1CompletionDate\"));",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/orders/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"orders",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add order 3 - (2-2)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"customerName\": \"Anu\",\n    \"orderContents\": \"Šnitsel ja kurgisalat\",\n    \"startDate\": \"2024-12-14T15:00:00\",\n    \"restaurantId\": {{restaurant2Id}},\n    \"courierId\": {{courier2Id}}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/orders",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add order 4 - (4-2)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"customerName\": \"Liisa\",\n    \"orderContents\": \"Taimne wok ja roheline tee\",\n    \"startDate\": \"2024-12-14T14:20:00\",\n    \"restaurantId\": {{restaurant4Id}},\n    \"courierId\": {{courier2Id}}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/orders",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add order 5 - (1-1)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"customerName\": \"Jaan\",\n    \"orderContents\": \"Grillribid ja kartulipüree\",\n    \"startDate\": \"2024-12-14T13:45:00\",\n    \"restaurantId\": {{restaurant1Id}},\n    \"courierId\": {{courier1Id}}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/orders",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add order 6 - (1-1)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"customerName\": \"Mihkel\",\n    \"orderContents\": \"Pitsa ja limonaad\",\n    \"startDate\": \"2024-12-14T11:15:00\",\n    \"restaurantId\": {{restaurant1Id}},\n    \"courierId\": {{courier1Id}}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/orders",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Resource 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Restaurant data is correct\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.name).to.eql(\"Pärna Puhvet\");",
+									"    pm.expect(jsonData.location).to.eql(\"Pärnu\");",
+									"    pm.environment.set(\"restaurant1Id\", jsonData.id);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/couriers/{{courier1Id}}/resource",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"couriers",
+								"{{courier1Id}}",
+								"resource"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Resource 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Restaurant data is correct\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.name).to.eql(\"Ranna Restoran\");",
+									"    pm.expect(jsonData.location).to.eql(\"Kuressaare\");",
+									"    pm.environment.set(\"restaurant2Id\", jsonData.id);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/couriers/{{courier2Id}}/resource",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"couriers",
+								"{{courier2Id}}",
+								"resource"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Resource 3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/couriers/{{courier3Id}}/resource",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"couriers",
+								"{{courier3Id}}",
+								"resource"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Resource 4",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/couriers/{{courier4Id}}/resource",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"couriers",
+								"{{courier4Id}}",
+								"resource"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "trainingId",
+			"value": ""
+		},
+		{
+			"key": "registrationId",
+			"value": ""
+		}
+	]
+}
